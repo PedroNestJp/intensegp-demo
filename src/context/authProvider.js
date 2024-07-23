@@ -33,12 +33,12 @@ const AuthProvider = ({ children }) => {
 
   const googleProvider = new GoogleAuthProvider();
 
-  const loginWithPopup = async (email, password, phone, address, cpf) => {
+  const loginWithPopup = async (name, email, password, phone, address, cpf) => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
       const userData = {
-        name: email,
+        name,
         email,
         password,
         phone,
@@ -58,11 +58,11 @@ const AuthProvider = ({ children }) => {
       const result = await createUserWithEmailAndPassword(auth, email, password);
       const user = result.user;
       const userData = {
-        name: email,
         email,
-        phone,
-        address,
-        cpf,
+        password,
+        // phone,
+        // address,
+        // cpf,
       };
       await setDoc(doc(db, 'users', user.uid), userData);
       setUser(user);

@@ -10,20 +10,20 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const { login, logout, loginWithPopup, user } = useAuth();
+    const { signup, logout, loginWithPopup, user } = useAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await login(email, password);
+            await signup(email, password);
             navigate("/");
         } catch (error) {
             setError(error.message);
         }
     };
 
-    async function loginComGoogless(event) {
+    async function loginWithGoogle(event) {
         event.preventDefault();
         try {
             await loginWithPopup();
@@ -96,7 +96,7 @@ export default function Login() {
                                     </label>
                                 </div>
                             </div>
-                            <button type="submit">
+                            <button onClick={handleSubmit} type="submit">
                                 Entrar
                             </button>
                         </form>
@@ -105,7 +105,7 @@ export default function Login() {
                         <p className={styles.textLoginSocial}>
                             Quero acessar minha conta com Google
                         </p>
-                        <button onClick={loginComGoogless} className={styles.btnGoogle}>
+                        <button onClick={loginWithGoogle} className={styles.btnGoogle}>
                             <FcGoogle className={styles.iconGoogle}/>
                             <p className={styles.textBtnGoogle}>Continuar com o Google</p>
                         </button>

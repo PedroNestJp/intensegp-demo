@@ -19,3 +19,33 @@ body {
     --title-primary-dark-blue: #1416FF;
 
 }
+
+.App {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .question-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .question-container h3 {
+    margin-top: 0;
+  }
+  
+  .question-container label {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  .question-container button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
