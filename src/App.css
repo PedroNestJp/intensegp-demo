@@ -7,12 +7,15 @@
 
 body {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
     --bg-primary: #f5f5f5;
     --bg-gray: #828282;
     --bg-green: #32D83D;
+    --bg-dark-green: #186A1E;
 
     --title-primary-blue: #0576AC;
     --title-primary-dark-blue: #0576AC;

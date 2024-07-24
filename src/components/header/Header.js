@@ -1,13 +1,14 @@
 import React from 'react';
 import styles from './Header.module.css';
+import { auth } from '../../services/firebase';
 
 const Header = () => {
   return (
     <div className={styles.header}>
       <h1>Dashboard, Set/24</h1>
       <div className={styles.user}>
-        <span>Jonas Silva</span>
-        <img src="/path/to/user/avatar.jpg" alt="User Avatar" />
+        <span>{ auth.currentUser?.email }</span>
+        <img src={auth.currentUser?.photoURL} alt="profile" />
       </div>
     </div>
   );

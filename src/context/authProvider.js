@@ -93,7 +93,7 @@ const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     await signOut(auth);
-    navigate('/login');
+    navigate('/');
   };
 
   const value = {

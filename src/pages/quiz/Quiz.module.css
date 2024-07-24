@@ -1,18 +1,22 @@
 .quizContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 4rem;
-  }
-  
-  .successMessage {
-    font-size: 24px;
-    color: green;
-    margin-top: 20px;
-  }
+  width: 80%;
+  margin: 0 auto;
+}
 
-  .quizTitle {
-    display: flex;
-    justify-content: flex-start;  
-  }
-  
+.progressBar {
+  height: 10px;
+  background-color: #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #186A1E;
+}
+
+.successMessage {
+  text-align: center;
+  font-size: 1.5em;
+  color: #4caf50;
+  margin-top: 20px;
+}

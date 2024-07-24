@@ -5,6 +5,8 @@ import styles from "./login.module.css";
 import themes from "../../themes/themes.module.css";
 import logo from "../../assets/logo.png";
 import { FcGoogle } from "react-icons/fc";
+import "../../App.css";
+import Dashboard from "../../pages/dashboard/dashboard";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -36,22 +38,7 @@ export default function Login() {
     return (
         <>
             {user ? (
-                <div>
-                    <h1> Você já está logado </h1>
-                    <h2>
-                        <p>
-                            Deseja fazer login com
-                            <Link onClick={logout} to="/login" style={{ color: "#f00" }}>
-                                outra conta
-                            </Link>
-                            ou voltar para a
-                            <Link to="/" style={{ color: "#f00" }}>
-                                tela inicial
-                            </Link>
-                            ?
-                        </p>
-                    </h2>
-                </div>
+                <Dashboard />
             ) : (
                 <div className={styles.mainContainer}>
                     <div className={styles.container}>
@@ -106,7 +93,7 @@ export default function Login() {
                             Quero acessar minha conta com Google
                         </p>
                         <button onClick={loginWithGoogle} className={styles.btnGoogle}>
-                            <FcGoogle className={styles.iconGoogle}/>
+                            <FcGoogle className={styles.iconGoogle} />
                             <p className={styles.textBtnGoogle}>Continuar com o Google</p>
                         </button>
                         <div className={styles.loginOrLine}>

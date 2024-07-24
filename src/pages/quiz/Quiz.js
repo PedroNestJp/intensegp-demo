@@ -1,23 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Question from '../../components/question/Question';
-import styles from '../quiz/Quiz.module.css';
-import { assignmentIcon, logo } from '../../assets/img';
+import Question from '../question/Question';
+import styles from './Quiz.module.css';
+import { socialIcon, environmentIcon, governanceIcon } from '../../assets/img';
 
 const quizQuestions = {
-  governanca: [
-    {
-      question: 'A empresa possui um conselho administrativo?',
-      options: ['Sim', 'Não']
-    },
-    {
-      question: 'A empresa possui planejamento estratégico?',
-      options: ['Sim', 'Não']
-    },
-    {
-      question: 'A empresa possui setor de Compliance?',
-      options: ['Sim', 'Não']
-    },
-  ],
   social: [
     {
       question: 'A empresa possui políticas de direitos humanos que mitigam os riscos para o negócio e estão em conformidade com os Princípios Orientadores da ONU sobre Empresas e Direitos Humanos?',
@@ -45,15 +31,44 @@ const quizQuestions = {
       question: 'A empresa monitora e mede seu consumo de água e energia, buscando a otimização e o uso de fontes renováveis?',
       options: ['Sim', 'Não']
     },
-  ]
+  ],
+  governanca: [
+    {
+      question: 'A empresa possui um conselho administrativo?',
+      options: ['Sim', 'Não']
+    },
+    {
+      question: 'A empresa possui planejamento estratégico?',
+      options: ['Sim', 'Não']
+    },
+    {
+      question: 'A empresa possui setor de Compliance?',
+      options: ['Sim', 'Não']
+    },
+  ],
 };
 
-const categories = ['governanca', 'social', 'ambiental'];
+const categories = ['social', 'ambiental', 'governanca'];
+
+const categoryDetails = {
+  social: {
+    name: 'Social',
+    icon: socialIcon
+  },
+  ambiental: {
+    name: 'Meio Ambiente',
+    icon: environmentIcon
+  },
+  governanca: {
+    name: 'Governança',
+    icon: governanceIcon
+  }
+};
 
 const Quiz = () => {
   const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState(JSON.parse(localStorage.getItem('quizAnswers')) || {});
+  const [answers, setAnswers] = useState({});
 
   useEffect(() => {
     localStorage.setItem('quizAnswers', JSON.stringify(answers));
@@ -76,34 +91,50 @@ const Quiz = () => {
       setCurrentCategoryIndex(currentCategoryIndex + 1);
       setCurrentQuestionIndex(0);
     } else {
-      console.log('Quiz finished', newAnswers);
+      // Quiz concluído
+      console.log('Quiz concluído');
+      console.log(newAnswers);
+      localStorage.setItem('quizAnswers', JSON.stringify(newAnswers));
+
+      // Redirecionar para a página de resultados
+      window.location.href = '/dashboard';
     }
   };
 
   const currentCategory = categories[currentCategoryIndex];
-  const currentQuestion = quizQuestions[currentCategory][currentQuestionIndex];
+  const currentQuestion = quizQuestions[currentCategory] ? quizQuestions[currentCategory][currentQuestionIndex] : null;
+  const totalQuestions = categories.reduce((total, category) => total + quizQuestions[category].length, 0);
+  const answeredQuestions = categories.reduce((total, category, index) => {
+    if (index < currentCategoryIndex) {
+      return total + quizQuestions[category].length;
+    } else if (index === currentCategoryIndex) {
+      return total + currentQuestionIndex;
+    }
+    return total;
+  }, 0);
 
-  // Verificação para exibir a mensagem final
+  const progressPercentage = (answeredQuestions / totalQuestions) * 100;
+  const { name: sectionName, icon: sectionIcon } = categoryDetails[currentCategory];
+
   const isQuizFinished = currentCategoryIndex >= categories.length;
 
   return (
     <div className={styles.quizContainer}>
-      <img src={logo} alt="Logo" className={styles.logo} />
-      <div className={styles.quizTitle}>
-        <img src={assignmentIcon} style={{width: "2rem"}}  alt="Assignment Icon" />
-        <h2>Questionário</h2>
+      <div className={styles.progressBar}>
+        <div className={styles.progress} style={{ width: `${progressPercentage}%` }}></div>
       </div>
-      {!isQuizFinished ? (
+      {!isQuizFinished && currentQuestion ? (
         <Question
           question={currentQuestion.question}
           options={currentQuestion.options}
           currentQuestionIndex={currentQuestionIndex}
           totalQuestions={quizQuestions[currentCategory].length}
           handleAnswer={handleAnswer}
+          sectionName={sectionName}
+          sectionIcon={sectionIcon}
         />
       ) : (
-        
-        <div className={styles.successMessage}> { alert('Quiz concluído!') }Obrigado por completar o questionário!</div>
+        <div className={styles.successMessage}>Obrigado por completar o questionário!</div>
       )}
     </div>
   );
