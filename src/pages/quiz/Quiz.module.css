@@ -1,0 +1,18 @@
+.quizContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem;
+  }
+  
+  .successMessage {
+    font-size: 24px;
+    color: green;
+    margin-top: 20px;
+  }
+
+  .quizTitle {
+    display: flex;
+    justify-content: flex-start;  
+  }
+  

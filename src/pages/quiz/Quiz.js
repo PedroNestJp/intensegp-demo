@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Question from '../../components/question/Question';
-import styles from './Quiz.module.css';
+import styles from '../quiz/Quiz.module.css';
+import { assignmentIcon, logo } from '../../assets/img';
 
 const quizQuestions = {
   governanca: [
@@ -34,7 +35,7 @@ const quizQuestions = {
   ambiental: [
     {
       question: 'A empresa possui políticas ambientais formalizadas e divulgadas publicamente que abordem os seguintes temas?',
-      options: ['Sim', 'Não']
+      options: ['Mudanças climáticas', 'Gestão de recursos hídricos','Proteção dos oceanos', 'Preservação de florestas e biodiversidade', 'Uso responsável do solo', 'Poluição do ar', 'Gestão de resíduos (incluindo resíduos tecnológicos)']
     },
     {
       question: 'A empresa possui licenças ambientais e está em conformidade com as normas ambientais aplicáveis?',
@@ -87,6 +88,11 @@ const Quiz = () => {
 
   return (
     <div className={styles.quizContainer}>
+      <img src={logo} alt="Logo" className={styles.logo} />
+      <div className={styles.quizTitle}>
+        <img src={assignmentIcon} style={{width: "2rem"}}  alt="Assignment Icon" />
+        <h2>Questionário</h2>
+      </div>
       {!isQuizFinished ? (
         <Question
           question={currentQuestion.question}
