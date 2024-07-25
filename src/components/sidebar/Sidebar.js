@@ -18,7 +18,7 @@ const Sidebar = () => {
       <ul className={styles.menu}>
         <li ><Link to="/dashboard"><Home /> Dashboard</Link></li>
         <li ><Link to="/academy"><BarChart /> Academy</Link></li>
-        <li ><Link to="/quiz"><BarChart /> Questionários</Link></li>
+        <li ><Link to="/questionnaires"><BarChart /> Questionários</Link></li>
         <li ><Link to="/action-plans"><BarChart /> Planos de Ação</Link></li>
         <li ><Link to="/reports"><BarChart /> Relatórios</Link></li>
         <li ><Link to="/settings"><Settings /> Configurações</Link></li>

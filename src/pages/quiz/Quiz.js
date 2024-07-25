@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Question from '../question/Question';
+import Question from '../../components/Question';
 import styles from './Quiz.module.css';
 import { socialIcon, environmentIcon, governanceIcon } from '../../assets/img';
 
