@@ -6,7 +6,7 @@ import { assignmentIcon, logo } from '../../assets/img';
 const Questionnaire = () => {
   return (
     <div className={styles.container}>
-      <img src={logo} style={{"width": "16rem"}} alt="logo" />
+      <img className={styles.logo} src={logo} alt="logo" />
       <div className={styles.title}>
         <img src={assignmentIcon} style={{"width": "2rem"}} alt="Assignment Icon" />
         <h1>Questionário</h1>

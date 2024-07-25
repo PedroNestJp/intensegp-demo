@@ -1,72 +1,234 @@
 .container {
-    display: flex;
-    padding: 1rem;
-    gap: 1rem;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  padding: 1rem 3rem;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo {
+  width: 16rem;
+  margin-left: -1.5rem;
+}
+
+.title {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.title h2 {
+  margin: 0;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  margin-top: 1rem;
+}
+
+.cards a {
+  text-decoration: none;
+}
+
+.card {
+  background-color: #172B3A;
+  border-radius: 0 4.5rem;
+  color: #fff;
+  text-align: center;
+  height: 30rem;
+}
+
+.card span {
+  display: block;
+  font-weight: 600;
+  font-size: 30px;
+  margin-top: 5rem;
+}
+
+.icon {
+  height: 15rem;
+  width: 16rem;
+  border-radius: 0 4rem;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+@media screen and (max-width: 1000px) {
+  .icon {
+    width: 14rem;
   }
-  
-  .title {
-    align-items: center;
-    display: flex;
-    gap: 1rem;
-    margin-left: 2rem;
-    margin-bottom: 3rem;
-  }
-  
-  .title h2 {
-    margin: 0;
-  }
-  
+
   .cards {
-    display: flex;
-    justify-content: center;
-    gap: 5rem;
+    gap: 2rem;
   }
-  
-  .cards a {
-    text-decoration: none;
+
+  .card span {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .icon {
+    width: 12rem;
+  }
+
+  .cards {
+    gap: 1rem;
+  }
+
+  .card {
+    height: 25rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .icon {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .cards {
+    gap: 1rem;
+  }
+
+  .card {
+    height: 20rem;
+  }
+
+  .card span {
+    font-size: 15px;
+  }
+
+  .title {
+    margin-bottom: 0;
+  }
+
+  .title h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .icon {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .cards {
+    gap: 1rem;
+  }
+
+  .card {
+    height: 15rem;
+  }
+
+  .card span {
+    margin-top: 2rem;
+  }
+
+  .title {
+    margin-bottom: 0;
+  }
+
+  .title h1 {
+    font-size: 1.2rem;
+  }
+
+  .socialIcon,
+  .governanceIcon,
+  .environmentIcon {
+    background-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .logo {
+    width: 12rem;
+  }
+
+  .title {
+    margin-bottom: 0;
   }
   
   .card {
-    background-color: #172B3A;
-    border-radius: 0 4.5rem;
-    color: #fff;
-    text-align: center;
-    height: 30rem;
-    width: 16rem;
+    height: 13rem;
   }
-  
-  .card span {
-    display: block;
-    font-weight: 600;
-    font-size: 30px;
-    margin-top: 5rem;
-  }
-  
+
   .icon {
-    height: 15rem;
-    width: 16rem;
-    border-radius: 0 4rem;
+    width: 7rem;
+    height: 7rem;
   }
-  
-  .socialIcon {
-    background-image: url("../../assets/social-icon.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #00B2A9;
+
+  .card span {
+    font-size: 12px;
+    margin-top: 1.5rem;
   }
-  
+}
+
+@media screen and (max-width: 400px) {
+
+  .container {
+    padding: 1rem;
+  }
+
+  .logo {
+    margin-left: -1.2rem;
+  }
+
+  .title {
+    margin-bottom: 0;
+  }
+
+  .title h1 {
+    font-size: 1.2rem;
+  }
+
+  .icon {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .cards {
+    gap: 1rem;
+  }
+
+  .card {
+    height: 13rem;
+  }
+
+  .card span {
+    margin-top: 2rem;
+  }
+
+  .socialIcon,
+  .governanceIcon,
   .environmentIcon {
-    background-image: url("../../assets/environment-icon.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #B5F22A;
+    background-size: 4rem;
   }
-  
-  .governanceIcon {
-    background-image: url("../../assets/governance-icon.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: #FDD835;
-  }
+}
+
+.socialIcon {
+  background-image: url("../../assets/social-icon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #00B2A9;
+}
+
+.environmentIcon {
+  background-image: url("../../assets/environment-icon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #B5F22A;
+}
+
+.governanceIcon {
+  background-image: url("../../assets/governance-icon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #FDD835;
+}
