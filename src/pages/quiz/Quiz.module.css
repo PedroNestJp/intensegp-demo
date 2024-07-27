@@ -4,3 +4,32 @@
   color: #4caf50;
   margin-top: 20px;
 }
+
+.categoryCompletionMessage {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.categoryCompletionMessage img {
+  width: 8rem;
+}
+
+.categoryCompletionMessage h2 {
+  margin-bottom: 10px;
+}
+
+.categoryCompletionMessage h3 {
+  margin-bottom: 20px;
+}
+
+.categoryCompletionMessage p {
+  margin-bottom: 20px;
+}
+
+.categoryCompletionMessage button:hover {
+  background-color: #0056b3;
+}

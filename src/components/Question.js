@@ -61,13 +61,15 @@ const Question = ({
           </label>
         ))}
       </div>
-      <button
-        className={styles.continueButton}
-        onClick={handleSubmit}
-        disabled={!selectedOption}
-      >
-        Continuar
-      </button>
+      <div className={styles.buttonContainer}>
+        <button
+          className={styles.continueButton}
+          onClick={handleSubmit}
+          disabled={!selectedOption}
+        >
+          Continuar
+        </button>
+      </div>
     </div>
   );
 };
