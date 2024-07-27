@@ -35,7 +35,7 @@
 
 .card {
   background-color: #172B3A;
-  border-radius: 0 4.5rem;
+  border-radius: 0 8rem;
   color: #fff;
   text-align: center;
   height: 30rem;
@@ -51,7 +51,8 @@
 .icon {
   height: 15rem;
   width: 16rem;
-  border-radius: 0 4rem;
+  border-radius: 0 7.9rem;
+  margin-top: -0.5rem;
 }
 
 .card:hover {
@@ -83,7 +84,17 @@
 
   .card {
     height: 25rem;
+    border-radius: 0 6rem;
   }
+
+  .card .icon {
+    border-radius: 0 5.9rem;
+  }
+
+  .card span {
+    margin-top: 2rem;
+  }
+
 }
 
 @media screen and (max-width: 700px) {
@@ -98,6 +109,11 @@
 
   .card {
     height: 20rem;
+    border-radius: 0 4.9rem;
+  }
+
+  .card .icon {
+    border-radius: 0 4.9rem;
   }
 
   .card span {
@@ -125,6 +141,11 @@
 
   .card {
     height: 15rem;
+    border-radius: 0 3.9rem;
+  }
+
+  .card .icon {
+    border-radius: 0 3.9rem;
   }
 
   .card span {
@@ -142,7 +163,7 @@
   .socialIcon,
   .governanceIcon,
   .environmentIcon {
-    background-size: 5rem;
+    background-size: 3rem;
   }
 }
 
@@ -154,14 +175,20 @@
   .title {
     margin-bottom: 0;
   }
-  
+
   .card {
     height: 13rem;
+    border-radius: 0 3rem;
+  }
+
+  .card .icon {
+    border-radius: 0 3rem;
   }
 
   .icon {
     width: 7rem;
     height: 7rem;
+
   }
 
   .card span {
@@ -208,7 +235,7 @@
   .socialIcon,
   .governanceIcon,
   .environmentIcon {
-    background-size: 4rem;
+    background-size: 3rem;
   }
 }
 
