@@ -21,7 +21,7 @@ const quizQuestions = {
   ambiental: [
     {
       question: 'A empresa possui políticas ambientais formalizadas e divulgadas publicamente que abordem os seguintes temas?',
-      options: ['Mudanças climáticas', 'Gestão de recursos hídricos','Proteção dos oceanos', 'Preservação de florestas e biodiversidade', 'Uso responsável do solo', 'Poluição do ar', 'Gestão de resíduos (incluindo resíduos tecnológicos)']
+      options: ['Mudanças climáticas', 'Gestão de recursos hídricos', 'Proteção dos oceanos', 'Preservação de florestas e biodiversidade', 'Uso responsável do solo', 'Poluição do ar', 'Gestão de resíduos (incluindo resíduos tecnológicos)']
     },
     {
       question: 'A empresa possui licenças ambientais e está em conformidade com as normas ambientais aplicáveis?',
@@ -53,15 +53,18 @@ const categories = ['social', 'ambiental', 'governanca'];
 const categoryDetails = {
   social: {
     name: 'Social',
-    icon: socialIcon
+    icon: socialIcon,
+    color: '#05ABAB',
   },
   ambiental: {
     name: 'Meio Ambiente',
-    icon: environmentIcon
+    icon: environmentIcon,
+    color: '#D5FD30',
   },
   governanca: {
     name: 'Governança',
-    icon: governanceIcon
+    icon: governanceIcon,
+    color: '#FF8C00',
   }
 };
 
@@ -114,17 +117,15 @@ const Quiz = () => {
   }, 0);
 
   const progressPercentage = (answeredQuestions / totalQuestions) * 100;
-  const { name: sectionName, icon: sectionIcon } = categoryDetails[currentCategory];
+  const { name: sectionName, icon: sectionIcon, color: sectionColor } = categoryDetails[currentCategory];
 
   const isQuizFinished = currentCategoryIndex >= categories.length;
 
   return (
-    <div className={styles.quizContainer}>
-      <div className={styles.progressBar}>
-        <div className={styles.progress} style={{ width: `${progressPercentage}%` }}></div>
-      </div>
+    <>
       {!isQuizFinished && currentQuestion ? (
         <Question
+          progressPercentage={progressPercentage}
           question={currentQuestion.question}
           options={currentQuestion.options}
           currentQuestionIndex={currentQuestionIndex}
@@ -132,11 +133,12 @@ const Quiz = () => {
           handleAnswer={handleAnswer}
           sectionName={sectionName}
           sectionIcon={sectionIcon}
+          sectionColor={sectionColor}
         />
       ) : (
         <div className={styles.successMessage}>Obrigado por completar o questionário!</div>
       )}
-    </div>
+    </>
   );
 };
 

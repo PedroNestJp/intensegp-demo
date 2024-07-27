@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Question.module.css';
 
-const Question = ({ 
-  question, 
-  options = [], // Defina um valor padrão vazio para evitar erros
-  currentQuestionIndex, 
-  totalQuestions, 
-  handleAnswer, 
-  sectionName, 
-  sectionIcon 
+const Question = ({
+  progressPercentage,
+  question,
+  options = [],
+  currentQuestionIndex,
+  totalQuestions,
+  handleAnswer,
+  sectionName,
+  sectionIcon,
+  sectionColor,
 }) => {
   const [selectedOption, setSelectedOption] = useState('');
 
@@ -28,17 +30,27 @@ const Question = ({
   };
 
   return (
-    <div className={styles.questionContainer}>
-      <div className={styles.header}>
-        <img src={sectionIcon} alt={`${sectionName} Icon`} />
-        <h3>{sectionName}</h3>
-        <span className={styles.questionNumber}>{`${currentQuestionIndex + 1}/${totalQuestions}`}</span>
-      </div>
+    <div className={styles.container}>
+      <header>
+        <div className={styles.sectionCategory}>
+          <div className={styles.sectionColor} style={{ backgroundColor: sectionColor }}>
+            <img className={styles.icon} src={sectionIcon} alt={`${sectionName} Icon`} />
+          </div>
+          <h3 className={styles.sectionName} >{sectionName}</h3>
+        </div>
+        <div className={styles.progressBar}>
+          <div className={styles.progress} style={{ width: `${progressPercentage}%` }}></div>
+        </div>
+        <div className={styles.questionIndexContainer}>
+          <p className={styles.questionNumber}>{`${currentQuestionIndex + 1}/${totalQuestions}`}</p>
+        </div>
+      </header>
       <p className={styles.question}>{question}</p>
       <div className={styles.options}>
         {options.map((option, index) => (
           <label key={index}>
             <input
+              className={styles.radioInput}
               type="radio"
               name={`question-${currentQuestionIndex}`}
               value={option}
@@ -49,8 +61,8 @@ const Question = ({
           </label>
         ))}
       </div>
-      <button 
-        className={styles.continueButton} 
+      <button
+        className={styles.continueButton}
         onClick={handleSubmit}
         disabled={!selectedOption}
       >
